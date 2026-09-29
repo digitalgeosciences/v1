@@ -9,7 +9,7 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
   },
-  base: mode === "development" ? "/" : "/digitalgeo/",
+  base: mode === "development" ? "/" : "/v1/",
   plugins: [
     react(),
     mode === 'development' &&
