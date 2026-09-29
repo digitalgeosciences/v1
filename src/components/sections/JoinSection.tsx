@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { asset } from "@/lib/asset";
 import { Link } from "react-router-dom";
 import {
   UserPlus,
@@ -52,14 +53,14 @@ const JoinSection = () => {
   const [siteConfig, setSiteConfig] = useState<SiteConfig | null>(null);
 
   useEffect(() => {
-    fetch("/data/join.json")
+    fetch(asset("data/join.json"))
       .then((res) => res.json())
       .then(setData)
       .catch(console.error);
   }, []);
 
   useEffect(() => {
-    fetch("/data/site-config.json")
+    fetch(asset("data/site-config.json"))
       .then((res) => res.json())
       .then(setSiteConfig)
       .catch(console.error);

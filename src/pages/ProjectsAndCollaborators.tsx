@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { asset } from "@/lib/asset";
 import { Globe, Github, Linkedin, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -61,14 +62,14 @@ const ProjectsAndCollaborators = () => {
   const [collaborators, setCollaborators] = useState<Collaborator[]>([]);
 
   useEffect(() => {
-    fetch("/data/projects.json")
+    fetch(asset("data/projects.json"))
       .then((res) => res.json())
       .then((data) => setProjects(data.projects ?? []))
       .catch(console.error);
   }, []);
 
   useEffect(() => {
-    fetch("/data/collaborators.json")
+    fetch(asset("data/collaborators.json"))
       .then((res) => res.json())
       .then((data) => setCollaborators(data.collaborators ?? []))
       .catch(console.error);

@@ -8,6 +8,7 @@ import NotFound from "./pages/NotFound";
 import GeoPrompts from "./pages/projects/GeoPrompts";
 import GeoGallery from "./pages/projects/GeoGallery";
 import ProjectsAndCollaborators from "./pages/ProjectsAndCollaborators";
+import AnnouncementBar from "./components/layout/AnnouncementBar";
 
 const queryClient = new QueryClient();
 
@@ -16,6 +17,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <AnnouncementBar />
       <HashRouter>
         <Routes>
           <Route path="/" element={<Index />} />

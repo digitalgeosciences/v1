@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { asset } from "@/lib/asset";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
@@ -25,7 +26,7 @@ const Header = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('/data/site-config.json')
+    fetch(asset("data/site-config.json"))
       .then(res => res.json())
       .then(setConfig)
       .catch(console.error);
@@ -94,7 +95,7 @@ const Header = () => {
           >
             <div className="relative">
               <img 
-                src="/images/logo.png" 
+                src={asset("images/logo.png")} 
                 alt="Digital Geosciences Logo" 
                 className="w-9 h-9 object-contain transition-transform group-hover:scale-110"
               />

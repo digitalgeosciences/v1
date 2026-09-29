@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { asset } from "@/lib/asset";
 import { Link } from "react-router-dom";
 import { Users, Clock, Github, Globe, Linkedin, Mail, User } from "lucide-react";
 
@@ -47,7 +48,7 @@ const CollaboratorsSection = () => {
   const [data, setData] = useState<CollaboratorsData | null>(null);
 
   useEffect(() => {
-    fetch("/data/collaborators.json")
+    fetch(asset("data/collaborators.json"))
       .then((res) => res.json())
       .then(setData)
       .catch(console.error);
@@ -101,7 +102,7 @@ const CollaboratorsSection = () => {
                     <div className="relative">
                       {collaborator.photo ? (
                         <img
-                          src={collaborator.photo}
+                          src={asset(collaborator.photo)}
                           alt={`${collaborator.name} profile`}
                           className="h-16 w-16 rounded-full object-cover border border-card-border shadow-md"
                           onError={(event) => {

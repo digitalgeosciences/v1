@@ -9,7 +9,8 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
   },
-  base: mode === "development" ? "/" : "/v1/",
+  // Relative base works on any subpath (github.io/v1/) or a custom domain root; HashRouter keeps the document at index.html.
+  base: mode === "development" ? "/" : "./",
   plugins: [
     react(),
     mode === 'development' &&

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { asset } from "@/lib/asset";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Hero from "@/components/sections/Hero";
@@ -35,7 +36,7 @@ const Index = () => {
   const [data, setData] = useState<ObjectivesData | null>(null);
 
   useEffect(() => {
-    fetch('/data/objectives.json')
+    fetch(asset("data/objectives.json"))
       .then(res => res.json())
       .then(setData)
       .catch(console.error);

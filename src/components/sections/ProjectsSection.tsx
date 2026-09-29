@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { asset } from "@/lib/asset";
 import { useSearchParams, Link } from "react-router-dom";
 import {
   Microscope,
@@ -59,7 +60,7 @@ const ProjectsSection = () => {
   const searchQuery = searchParams.get("search") || "";
 
   useEffect(() => {
-    fetch("/data/projects.json")
+    fetch(asset("data/projects.json"))
       .then((res) => res.json())
       .then(setData)
       .catch(console.error);

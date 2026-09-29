@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { asset } from "@/lib/asset";
 import { Mail, MapPin, ExternalLink } from "lucide-react";
 
 interface SiteConfig {
@@ -19,7 +20,7 @@ const Footer = () => {
   const [config, setConfig] = useState<SiteConfig | null>(null);
 
   useEffect(() => {
-    fetch('/data/site-config.json')
+    fetch(asset("data/site-config.json"))
       .then(res => res.json())
       .then(setConfig)
       .catch(console.error);
@@ -45,14 +46,14 @@ const Footer = () => {
               <div className="pt-4 border-t border-card-border/50">
                 <div className="flex items-center gap-3">
                   <img
-                    src="/images/digitalgeosciencesQR.png"
+                    src={asset("images/digitalgeosciencesQR.png")}
                     alt="QR code for WhatsApp updates"
                     className="h-20 w-20 rounded-xl border border-card-border bg-background/60 object-cover"
                   />
                   <div className="text-sm space-y-1">
                     <p className="text-foreground font-medium flex items-center gap-1">
                       <img
-                        src="/images/whicon.png"
+                        src={asset("images/whicon.png")}
                         alt="WhatsApp icon"
                         className="h-4 w-4 object-contain"
                       />
